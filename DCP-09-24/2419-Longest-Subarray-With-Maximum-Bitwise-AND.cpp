@@ -21,14 +21,12 @@ public:
 int maxi=*max_element(nums.begin(),nums.end());
 int len=1,maxii=1;
 for(int i=0;i<nums.size()-1;i++)
-{int temp=0;
-    while(i<nums.size()&&nums[i]==maxi)
-    {
-        i++;temp++;
-    }
-    maxii=max(maxii,temp);
+{
+    if(nums[i]==maxi&&nums[i+1]==maxi)
+   { len++;}
+    else {maxii=max(maxii,len); len=1;}
 }
-
+maxii=max(maxii,len);
 return maxii;
     }
 };
